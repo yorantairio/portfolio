@@ -284,7 +284,7 @@
     .group-sub { color: var(--text-muted); font-size: 0.9rem; max-width: 640px; margin-bottom: 1.5rem; }
     .e6-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 1.8rem; }
     .e6-list { list-style: none; display: grid; gap: 1rem; margin-top: 1rem; }
-    .e6-step { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border); }
+    .e6-step { padding-top: 1rem; border-top: 1px dashed var(--border); }
     .e6-meta { display: flex; flex-direction: column; gap: 0.2rem; }
     .e6-sem { font-weight: 700; color: var(--primary); font-size: 0.85rem; }
     .e6-date { font-size: 0.75rem; color: var(--text-muted); }
@@ -297,12 +297,23 @@
     .proxy-figure { overflow-x: auto; }
     .arch { width: 100%; min-width: 420px; height: auto; display: block; }
     @media (max-width: 860px) { .proxy-layout { grid-template-columns: minmax(0, 1fr); } }
+    .env-card { margin-bottom: 1.8rem; }
+    .vlan-list { display: grid; gap: 0.4rem; padding-left: 1.1rem; }
+    .cycle { margin-top: 1.8rem; }
+    .cycle-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+    .cycle-title { font-size: 1.1rem; font-weight: 700; }
+    .atelier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1.2rem; }
+    .atelier { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 1.4rem; box-shadow: var(--card-shadow); display: grid; gap: 0.8rem; align-content: start; }
+    .at-title { font-weight: 700; font-size: 1.02rem; line-height: 1.35; }
+    .at-row { display: grid; gap: 0.15rem; }
+    .at-k { font-family: 'Space Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); }
+    .at-v { font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; }
+    .at-v code, .proxy-text code { font-family: 'Space Mono', monospace; font-size: 0.78rem; background: var(--surface-2); padding: 0.05rem 0.35rem; border-radius: 4px; color: var(--text); overflow-wrap: anywhere; }
     .other-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.2rem; }
     .other-card { background: var(--surface-2); border-radius: 18px; padding: 1.2rem 1.4rem; }
     .other-eq { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
     .other-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
     .other-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
-    @media (max-width: 520px) { .e6-step { grid-template-columns: 1fr; gap: 0.3rem; } }
 
     .skills-grid {
       display: grid;
@@ -459,7 +470,7 @@
 
     .veille-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
       gap: 1.5rem;
     }
     .veille-card {
@@ -483,6 +494,9 @@
       margin-bottom: 1rem;
     }
     .veille-icon { font-size: 1.8rem; }
+    .veille-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+    .veille-src { display: inline-block; margin-top: 0.9rem; font-size: 0.8rem; font-weight: 600; color: var(--primary); text-decoration: none; }
+    .veille-src:hover { text-decoration: underline; }
     .veille-theme { font-weight: 700; font-size: 1.1rem; }
     .timeline-soc { margin-top: 1rem; }
     .soc-era {
@@ -829,7 +843,7 @@
     <div class="skills-grid">
       <div class="skill-card"><div class="skill-header"><div class="skill-name">Réseaux</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">TCP/IP — routage</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">VLAN / commutation</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">Cisco IOS / Packet Tracer</span><span class="skill-badge acquis">Acquis</span></div></div></div>
       <div class="skill-card"><div class="skill-header"><div class="skill-name">Systèmes</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Linux (Debian / Ubuntu)</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">Windows Server / AD</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">Virtualisation (Proxmox / VirtualBox)</span><span class="skill-badge acquis">Acquis</span></div></div></div>
-      <div class="skill-card"><div class="skill-header"><div class="skill-name">Sécurité &amp; Outils</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Wireshark / Nmap</span><span class="skill-badge cours">Vu en cours</span></div><div class="skill-item"><span class="skill-item-name">Zabbix / Supervision</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">HTML / CSS (bases du web)</span><span class="skill-badge cours">Vu en cours</span></div></div></div>
+      <div class="skill-card"><div class="skill-header"><div class="skill-name">Supervision</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Zabbix / Supervision</span><span class="skill-badge acquis">Acquis</span></div></div></div>
     </div>
   </section>
 
@@ -856,24 +870,50 @@
   <section id="veille">
     <div class="section-header"><div class="section-tag">// 05 — Veille technologique SOC</div><h2 class="section-title">L'évolution du SOC : des débuts à l'intelligence artificielle</h2><div class="section-sub">Veille sur les centres des opérations de sécurité (SOC), l'essor de l'intelligence artificielle et les actualités récentes.</div></div>
     <div class="veille-grid">
-      <div class="veille-card history-card"><div class="veille-head"><div class="veille-theme">Histoire du SOC</div></div><div class="timeline-soc"><div class="soc-era"><span class="soc-era-year">1990 - 2000</span><span class="soc-era-desc"><strong>Les débuts</strong>— Les premiers SOC apparaissent dans les banques et les institutions militaires. Surveillance manuelle des journaux et corrélation simple des événements.</span></div><div class="soc-era"><span class="soc-era-year">2000 - 2010</span><span class="soc-era-desc"><strong>La professionnalisation</strong>— Les SOC se généralisent dans les grandes entreprises. Apparition des premiers outils SIEM (gestion des informations et des événements de sécurité) et développement des CERT (équipes de réponse aux incidents).</span></div><div class="soc-era"><span class="soc-era-year">2010 - 2020</span><span class="soc-era-desc"><strong>L'ère des données massives</strong>— Explosion des volumes de données. Les SOC adoptent des SIEM de nouvelle génération (Splunk, QRadar) et automatisent les tâches répétitives grâce au SOAR (orchestration, automatisation et réponse).</span></div><div class="soc-era"><span class="soc-era-year">2020 - 2025</span><span class="soc-era-desc"><strong>L'arrivée de l'intelligence artificielle</strong>— L'apprentissage automatique sert à détecter les anomalies et à réduire les faux positifs. Les SOC deviennent plus proactifs.</span></div><div class="soc-era"><span class="soc-era-year">2025 →</span><span class="soc-era-desc"><strong>Le SOC augmenté</strong>— Intelligence artificielle générative et investigation en langage naturel. Le SOC devient hybride : les analystes et l'intelligence artificielle travaillent ensemble en temps réel.</span></div></div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Google Security Operations : un SOC assisté par Gemini</div></div><div class="veille-desc">Google dévoile une offre "Autonomous Security Operations" avec Gemini intégré nativement. Réduction de 70% du temps d'investigation et génération automatique de playbooks. </div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Microsoft Security Copilot généralisé aux SOC</div></div><div class="veille-desc">Microsoft annonce l'intégration de Copilot for Security dans Sentinel. Les analystes peuvent désormais interroger les journaux en langage naturel, synthétiser des incidents complexes et générer des rapports en quelques secondes. </div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Le SOC d'Airbus démontre l'IA à grande échelle</div></div><div class="veille-desc">Airbus CyberSecurity publie un cas d'usage : réduction de 82% des faux positifs et détection moyenne d'une menace en moins de trois minutes. Utilisation de modèles d'apprentissage profond sur des millions d'événements par seconde.</div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Un SOC autonome bloque une attaque en 47 secondes</div></div><div class="veille-desc">Darktrace rapporte un cas où sa solution d'intelligence artificielle a détecté et isolé un rançongiciel en 47 secondes dans un hôpital, avant qu'il ne paralyse les services.</div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-theme">SOC « as code » et services MDR</div></div><div class="veille-desc">Les SOC évoluent vers des configurations décrites sous forme de code et vers des services de détection et de réponse managées (MDR) qui intègrent l'intelligence artificielle. Les analystes sont assistés par des copilotes en permanence.</div></div>
-    </div>
-    <p style="color:var(--text-muted); margin-top:2rem; text-align:center; font-family:'Space Mono'; font-size:0.75rem;">Sources de veille : flux RSS (CERT-FR, sites spécialisés), alertes Google Scholar et conférences (RSA Conference, SSTIC).</p>
+      <div class="veille-card history-card"><div class="veille-head"><div class="veille-theme">Histoire du SOC</div></div><div class="timeline-soc"><div class="soc-era"><span class="soc-era-year">1990 - 2000</span><span class="soc-era-desc"><strong>Les débuts</strong> — Les premiers SOC apparaissent dans les banques et les institutions militaires. Surveillance manuelle des journaux et corrélation simple des événements.</span></div><div class="soc-era"><span class="soc-era-year">2000 - 2010</span><span class="soc-era-desc"><strong>La professionnalisation</strong> — Les SOC se généralisent dans les grandes entreprises. Apparition des premiers outils SIEM (gestion des informations et des événements de sécurité) et développement des CERT (équipes de réponse aux incidents).</span></div><div class="soc-era"><span class="soc-era-year">2010 - 2020</span><span class="soc-era-desc"><strong>L'ère des données massives</strong> — Explosion des volumes de données. Les SOC adoptent des SIEM de nouvelle génération (Splunk, QRadar) et automatisent les tâches répétitives grâce au SOAR (orchestration, automatisation et réponse).</span></div><div class="soc-era"><span class="soc-era-year">2020 - 2025</span><span class="soc-era-desc"><strong>L'arrivée de l'intelligence artificielle</strong> — L'apprentissage automatique sert à détecter les anomalies et à réduire les faux positifs. Les SOC deviennent plus proactifs.</span></div><div class="soc-era"><span class="soc-era-year">2025 →</span><span class="soc-era-desc"><strong>Le SOC augmenté</strong> — Intelligence artificielle générative et investigation en langage naturel. Le SOC devient hybride : les analystes et l'intelligence artificielle travaillent ensemble en temps réel.</span></div></div></div>
+      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Google : un agent d'IA pour le tri des alertes</div></div><div class="veille-desc">Google rend disponible dans Google Security Operations un agent de tri et d'investigation basé sur Gemini. Selon Google, l'analyse d'une alerte passe d'environ 30 minutes à 60 secondes, et l'agent a déjà traité plus de 5 millions d'alertes. Ces chiffres sont ceux annoncés par Google.</div><a class="veille-src" href="https://techinformed.com/googles-soc-agent-cuts-alert-review-from-30-minutes-to-60-seconds/" target="_blank" rel="noopener">Source : TechInformed, 16 juin 2026 →</a></div><div class="veille-card"><div class="veille-head"><div class="veille-theme">Microsoft Security Copilot : des analystes plus rapides</div></div><div class="veille-desc">Une étude de l'économiste en chef de Microsoft auprès d'analystes expérimentés montre qu'avec Copilot, ils sont 22 % plus rapides et 7 % plus précis. Copilot permet aussi de traduire une question en langage naturel en requête KQL.</div><a class="veille-src" href="https://www.microsoft.com/en-us/security/blog/2024/03/13/microsoft-copilot-for-security-is-generally-available-on-april-1-2024-with-new-capabilities/" target="_blank" rel="noopener">Source : Microsoft Security Blog, 13 mars 2024 →</a></div><div class="veille-card"><div class="veille-head"><div class="veille-theme">Un groupe hospitalier stoppe un rançongiciel grâce à l'IA</div></div><div class="veille-desc">Le groupement hospitalier de Dordogne (onze hôpitaux) a été visé par le rançongiciel Ryuk. L'outil de réponse autonome de Darktrace a détecté les premiers signes de l'attaque et l'a bloquée avant qu'elle n'atteigne les équipements médicaux des urgences.</div><a class="veille-src" href="https://www.darktrace.com/news/major-french-hospital-group-stops-ransomware-attack-with-darktrace-ai" target="_blank" rel="noopener">Source : Darktrace, 12 avril 2022 →</a></div><div class="veille-card"><div class="veille-head"><div class="veille-theme">Mandiant M-Trends 2026 : des attaques toujours plus rapides</div></div><div class="veille-desc">En 2025, le délai entre l'accès initial d'un attaquant et sa transmission à un autre groupe est tombé à 22 secondes, contre plus de 8 heures en 2022. Les failles exploitées restent la première porte d'entrée (32 % des intrusions), et un attaquant reste 14 jours avant d'être détecté (valeur médiane). D'où l'intérêt d'automatiser la détection dans les SOC.</div><a class="veille-src" href="https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2026" target="_blank" rel="noopener">Source : Google Cloud, Mandiant, 23 mars 2026 →</a></div></div>
+    
   </section>
 
   <section id="projets">
-    <div class="section-header"><div class="section-tag">// 06 — Projets</div><h2 class="section-title">Mes réalisations</h2><div class="section-sub">Ateliers professionnels de l'épreuve E6, projets en travaux pratiques et projets personnels.</div></div>
+    <div class="section-header"><div class="section-tag">// 06 — Projets</div><h2 class="section-title">Mes réalisations</h2><div class="section-sub">Mes ateliers de l'épreuve E6 et ma réalisation en entreprise.</div></div>
 
     <h3 class="group-title">Ateliers E6 — Équipe 6</h3>
-    <p class="group-sub">Six ateliers réalisés du 24 août au 2 octobre 2026, en deux cycles de trois semaines. Chaque semaine répond à un besoin précis de l'organisation.</p>
-    <div class="e6-grid">
-      <div class="projet-card"><div class="projet-tags"><span class="tag tag-accent">Cycle 1</span><span class="tag">Service Web</span></div><div class="projet-title">Serveur Web</div><ol class="e6-list"><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 28</span><span class="e6-date">24 – 28 août 2026</span></div><div class="e6-body"><div class="e6-need">Deux espaces Web distincts sur le même serveur <span class="e6-var">variante 3</span></div><div class="e6-sol">Configuration de deux hôtes virtuels sur un seul serveur Web, chacun avec son nom, son dossier et ses journaux.</div></div></li><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 29</span><span class="e6-date">31 août – 4 septembre 2026</span></div><div class="e6-body"><div class="e6-need">Portail interne de ressources pédagogiques <span class="e6-var">variante 1</span></div><div class="e6-sol">Installation du serveur Web et publication d'un portail accessible uniquement depuis le réseau interne.</div></div></li><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 30</span><span class="e6-date">7 – 11 septembre 2026</span></div><div class="e6-body"><div class="e6-need">Accès au portail par son nom <span class="e6-var">variante 2</span></div><div class="e6-sol">Création de l'enregistrement DNS et association du nom au site, pour ne plus passer par l'adresse IP.</div></div></li></ol></div>
-      <div class="projet-card"><div class="projet-tags"><span class="tag tag-accent">Cycle 2</span><span class="tag">Sécurité des journaux</span></div><div class="projet-title">Archivage et sauvegarde des journaux</div><ol class="e6-list"><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 31</span><span class="e6-date">14 – 18 septembre 2026</span></div><div class="e6-body"><div class="e6-need">Contrôle d'intégrité des archives <span class="e6-var">variante 3</span></div><div class="e6-sol">Calcul d'une empreinte (hachage SHA-256) pour chaque archive de journaux, puis vérification pour détecter toute modification.</div></div></li><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 32</span><span class="e6-date">21 – 25 septembre 2026</span></div><div class="e6-body"><div class="e6-need">Centralisation des journaux de plusieurs sources <span class="e6-var">variante 1</span></div><div class="e6-sol">Mise en place d'un serveur de journaux central (rsyslog) qui reçoit les journaux de plusieurs machines.</div></div></li><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 33</span><span class="e6-date">28 septembre – 2 octobre 2026</span></div><div class="e6-body"><div class="e6-need">Rotation des journaux sans perte d'écriture <span class="e6-var">variante 2</span></div><div class="e6-sol">Configuration de la rotation automatique (logrotate) pour archiver les journaux sans interrompre leur écriture.</div></div></li></ol></div>
+    <p class="group-sub">Ateliers professionnels réalisés pendant ma deuxième année de BTS SIO pour <strong>TechForm NC</strong>, un organisme de formation aux métiers du numérique. Pour chacun : analyse du besoin, mise en œuvre, tests, résolution d'un incident et sauvegarde.</p>
+    <div class="projet-card env-card">
+      <div class="projet-tags"><span class="tag tag-accent">Environnement</span><span class="tag">Proxmox VE 9.2.3</span><span class="tag">Debian 13</span><span class="tag">Apache2</span><span class="tag">Bind9</span><span class="tag">VyOS</span><span class="tag">Bash et cron</span></div>
+      <div class="projet-title">Le projet TechForm NC</div>
+      <div class="proxy-layout">
+        <div class="proxy-text">
+          <p><strong>À quoi sert ce projet.</strong> Chez TechForm NC, un organisme de formation aux métiers du numérique, les documents pédagogiques circulaient par clé USB et par messagerie : pas de point d'accès commun, aucun suivi, aucune sauvegarde fiable.</p>
+          <p><strong>Le but.</strong> Mettre en place, sans acheter de matériel, des services internes qui répondent à ce besoin : un portail Web accessible par son nom, réservé aux sections SISR et SLAM, avec des journaux de consultation centralisés, archivés et protégés contre toute modification.</p>
+          <p><strong>Le réseau.</strong> Quatre VLAN reliés par un routeur VyOS : les serveurs dans le VLAN 10, les sections SISR et SLAM dans les VLAN 20 et 30, et le laboratoire, exclu des services, dans le VLAN 40.</p>
+        </div>
+        <div class="proxy-figure"><svg class="arch" viewBox="0 0 640 190" role="img" aria-label="Schéma : le routeur VyOS relie Internet aux VLAN 10, 20, 30 et 40">
+  <rect x="270" y="8" width="100" height="34" rx="10" fill="var(--surface-2)" stroke="var(--border)"/>
+  <text x="320" y="30" text-anchor="middle" font-size="13" fill="var(--text)">Internet</text>
+  <path d="M320 42 L320 66" stroke="var(--text-muted)" stroke-width="2"/>
+  <rect x="240" y="66" width="160" height="40" rx="12" fill="var(--primary)"/>
+  <text x="320" y="91" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Routeur VyOS</text>
+  <g stroke="var(--text-muted)" stroke-width="2" fill="none">
+    <path d="M270 106 L85 140"/><path d="M305 106 L245 140"/><path d="M335 106 L395 140"/><path d="M370 106 L555 140"/>
+  </g>
+  <g font-size="14" font-weight="700" text-anchor="middle">
+    <rect x="15" y="140" width="140" height="44" rx="10" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"/><text x="85" y="167" fill="var(--text)">VLAN 10</text>
+    <rect x="175" y="140" width="140" height="44" rx="10" fill="var(--surface-2)" stroke="var(--border)"/><text x="245" y="167" fill="var(--text)">VLAN 20</text>
+    <rect x="325" y="140" width="140" height="44" rx="10" fill="var(--surface-2)" stroke="var(--border)"/><text x="395" y="167" fill="var(--text)">VLAN 30</text>
+    <rect x="485" y="140" width="140" height="44" rx="10" fill="var(--surface-2)" stroke="var(--border)"/><text x="555" y="167" fill="var(--text)">VLAN 40</text>
+  </g>
+</svg></div>
+      </div>
+    </div>
+    <div class="cycle">
+      <div class="cycle-head"><span class="tag tag-accent">Cycle 1</span><span class="cycle-title">Serveur Web</span></div>
+      <div class="atelier-grid"><div class="atelier"><div class="at-title">Portail interne restreint aux sections SISR et SLAM</div><div class="at-v">Portail pédagogique sous Apache2, accessible uniquement depuis les sections SISR et SLAM, avec un journal des consultations.</div></div><div class="atelier"><div class="at-title">Accès au portail par son nom (DNS interne)</div><div class="at-v">Zone DNS interne sur Bind9 pour accéder au portail par son nom, www.techform.loc, plutôt que par son adresse IP.</div></div><div class="atelier"><div class="at-title">Deux espaces Web sur le même serveur</div><div class="at-v">Deux sites (public et intranet) hébergés sur une seule machine grâce aux hôtes virtuels, chacun avec son propre journal.</div></div></div>
+    </div>
+    <div class="cycle">
+      <div class="cycle-head"><span class="tag tag-accent">Cycle 2</span><span class="cycle-title">Archivage et sauvegarde des journaux</span></div>
+      <div class="atelier-grid"><div class="atelier"><div class="at-title">Contrôle d'intégrité des archives</div><div class="at-v">Empreintes SHA-256 des archives de journaux pour détecter toute modification en cas d'enquête.</div></div><div class="atelier"><div class="at-title">Centralisation des journaux de plusieurs sources</div><div class="at-v">Serveur central rsyslog qui reçoit les journaux de plusieurs machines.</div></div><div class="atelier"><div class="at-title">Rotation des journaux sans perte d'écriture</div><div class="at-v">Rotation automatique avec logrotate, sans perdre de lignes pendant l'archivage.</div></div></div>
     </div>
 
     <h3 class="group-title">Réalisation en entreprise — GIE Interiles</h3>
@@ -907,18 +947,7 @@
       </div>
     </div>
 
-    <h3 class="group-title">Projets en travaux pratiques et en autonomie</h3>
-    <div class="projets-grid">
-      <div class="projet-card"><div class="projet-tags"><span class="tag">Réseau</span><span class="tag tag-accent">Cisco Packet Tracer</span><span class="tag">VLAN</span></div><div class="projet-title">Architecture réseau d'entreprise</div><div class="projet-desc">Conception et simulation d'une infrastructure réseau complète pour une entreprise fictive : segmentation en VLAN, routage inter-VLAN, configuration DHCP, listes de contrôle d'accès (ACL) et redondance de passerelle avec HSRP. Réalisé sous Cisco Packet Tracer, avec une documentation technique complète.</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
-      
-      
-      
-    </div>
-
-    <h3 class="group-title">Les autres ateliers E6 de la section</h3>
-    <p class="group-sub">Ateliers menés par les autres équipes sur la même infrastructure, présentés pour donner une vue d'ensemble.</p>
-    <div class="other-grid"><div class="other-card"><div class="other-eq">Équipe 1</div><div class="other-title">Segmentation en VLAN · Listes de contrôle d'accès (ACL)</div><div class="other-desc">Isolement du laboratoire, espace pour la section SLAM, restriction du lien montant ; accès d'administration réservé au poste enseignant, ouverture restreinte au service Web.</div></div><div class="other-card"><div class="other-eq">Équipe 2</div><div class="other-title">Routage inter-VLAN · Liaison chiffrée entre deux sites (VPN)</div><div class="other-desc">Accès séparés pour les sections SISR et SLAM, accès aux services de l'infrastructure ; liaison chiffrée entre sites et renouvellement des clés sans coupure.</div></div><div class="other-card"><div class="other-eq">Équipe 3</div><div class="other-title">Traduction d'adresses (NAT) · Sonde de détection d'intrusion (IDS)</div><div class="other-desc">Accès Internet différencié par espace, publication du service Web vers l'extérieur ; détection d'un balayage, d'une requête anormale et réduction des fausses alertes.</div></div><div class="other-card"><div class="other-eq">Équipe 4</div><div class="other-title">Adressage automatique (DHCP) · Partage de fichiers</div><div class="other-desc">Adressage par section, adresse fixe pour un poste désigné ; espaces séparés enseignants et étudiants, droits de lecture et d'écriture, traçabilité des accès.</div></div><div class="other-card"><div class="other-eq">Équipe 5</div><div class="other-title">Résolution de noms (DNS) · Supervision réseau (Zabbix)</div><div class="other-desc">Nommage interne des services, résolution inverse, restriction du laboratoire ; surveillance d'un serveur, d'un commutateur et routeur, et de la disponibilité d'un service.</div></div></div>
-  </section>
+    </section>
 
   <!-- SECTION LOISIRS AVEC POKER EN PLUS -->
   <section id="loisirs">
