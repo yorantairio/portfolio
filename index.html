@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TAIRIO Yoran — BTS SIO SISR | SOC & Cybersécurité</title>
+  <meta name="description" content="Portfolio de Yoran Tairio, étudiant en BTS SIO option SISR à Nouméa : réseaux, systèmes, supervision et cybersécurité."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -33,43 +34,7 @@
       font-family: 'Inter', sans-serif;
       line-height: 1.55;
       overflow-x: hidden;
-      cursor: none;
       font-size: 16px;
-    }
-
-    .cursor {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: var(--primary);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.08s ease-out;
-      box-shadow: 0 0 12px var(--primary);
-      mix-blend-mode: difference;
-    }
-    .cursor-trail {
-      position: fixed;
-      width: 32px;
-      height: 32px;
-      border: 2px solid var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transition: all 0.15s ease-out;
-      opacity: 0.5;
-      filter: blur(1px);
-    }
-    .particle {
-      position: fixed;
-      width: 3px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9997;
-      opacity: 0;
     }
 
     ::-webkit-scrollbar {
@@ -120,6 +85,17 @@
     }
     nav ul a:hover {
       color: var(--primary);
+    }
+    .menu-btn {
+      display: none;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font: inherit;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      cursor: pointer;
     }
     .nav-btn {
       background: var(--primary);
@@ -472,7 +448,7 @@
       border-left: 3px solid var(--primary);
     }
     .history-card {
-      grid-column: span 2;
+      grid-column: 1 / -1;
     }
     .veille-head {
       display: flex;
@@ -752,72 +728,33 @@
       font-size: 0.8rem;
     }
 
-    .modal-cv {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(8px);
-      z-index: 10000;
-      justify-content: center;
-      align-items: center;
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
     }
-    .modal-cv-content {
-      background: var(--surface);
-      border-radius: 32px;
-      padding: 2rem;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-    }
-    .modal-cv-content h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .modal-cv-content input {
-      width: 100%;
-      padding: 1rem;
-      margin: 1rem 0;
-      border: 2px dashed var(--border);
-      border-radius: 20px;
-      font-family: inherit;
-      background: var(--surface-2);
-    }
-    .modal-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .modal-btn {
-      padding: 0.7rem 1.5rem;
-      border-radius: 40px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    .modal-btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-    .modal-btn-secondary {
-      background: var(--surface-2);
-      color: var(--text);
+
+    @media (max-width: 960px) {
+      .menu-btn { display: block; }
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem 5% 1rem;
+      }
+      nav ul.open { display: flex; }
+      nav ul a { display: block; padding: 0.7rem 0; font-size: 1rem; }
+      .nav-btn { display: inline-block !important; margin-top: 0.5rem; text-align: center; }
     }
 
     @media (max-width: 720px) {
-      nav ul { display: none; }
       .hero-main-title { font-size: 2.5rem; }
       .hero-name { font-size: 2rem; }
       .contact-grid { grid-template-columns: 1fr; }
-      .history-card { grid-column: span 1; }
       .loisirs-grid { grid-template-columns: 1fr; }
       .skill-bar-item span:first-child { min-width: 85px; }
     }
@@ -825,25 +762,11 @@
 </head>
 <body>
 
-  <div class="cursor"></div>
-  <div class="cursor-trail"></div>
-
-  <div id="cvModal" class="modal-cv">
-    <div class="modal-cv-content">
-      <h3>📄 Télécharger mon CV</h3>
-      <p style="margin-bottom:1rem;">Sélectionnez votre fichier CV depuis votre ordinateur :</p>
-      <input type="file" id="cvFileInput" accept=".pdf" />
-      <p style="font-size:0.8rem; color:var(--text-muted); margin:0.5rem 0;">Ou cliquez sur "Télécharger" pour utiliser le CV par défaut</p>
-      <div class="modal-buttons">
-        <button class="modal-btn modal-btn-primary" id="confirmCvBtn">📥 Télécharger</button>
-        <button class="modal-btn modal-btn-secondary" id="closeModalBtn">Fermer</button>
-      </div>
-    </div>
-  </div>
 
   <nav>
     <div class="logo">YT.</div>
-    <ul>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuLinks">☰ Menu</button>
+    <ul id="menuLinks">
       <li><a href="#parcours">Parcours</a></li>
       <li><a href="#competences">Compétences</a></li>
       <li><a href="#certifications">Certifications</a></li>
@@ -859,7 +782,7 @@
   <div class="hero-section">
     <div class="hero-content">
       <div class="hero-badge">✨ Portfolio BTS SIO • Spé SISR</div>
-      <div class="hero-main-title">C'est <span>mon portfolio</span></div>
+      <div class="hero-main-title">Systèmes, réseaux <span>& cybersécurité</span></div>
       <div class="hero-name">TAIRIO Yoran</div>
       <div class="hero-bio">
         Je suis actuellement étudiant en BTS SIO option SISR (Solutions d'Infrastructure, Systèmes et Réseaux) en Nouvelle-Calédonie. Je construis des compétences solides en infrastructure IT à travers ma formation, mes projets personnels et mes stages en entreprise. Mon objectif est de devenir un expert en sécurité des systèmes d'information et de contribuer à la protection des données dans un monde de plus en plus connecté.
@@ -883,7 +806,7 @@
     <div class="section-header"><div class="section-tag">// 02 — Compétences</div><h2 class="section-title">Ce que je maîtrise</h2><div class="section-sub">Des compétences acquises en cours, en TP et par la pratique personnelle.</div></div>
     <div class="skills-grid">
       <div class="skill-card"><div class="skill-header"><div class="skill-icon">🖧</div><div class="skill-name">Réseaux</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">TCP/IP — Routage</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">VLAN / Switching</span><span class="skill-badge cours">📖 Vu en cours</span></div><div class="skill-item"><span class="skill-item-name">Cisco IOS / Packet Tracer</span><span class="skill-badge acquis">✓ Acquis</span></div></div></div>
-      <div class="skill-card"><div class="skill-header"><div class="skill-icon">🐧</div><div class="skill-name">Systèmes</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Linux (Debian / Ubuntu)</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">Windows Server / AD</span><span class="skill-badge cours">📖 Vu en cours</span></div><div class="skill-item"><span class="skill-item-name">Virtualisation (Proxmox / VirtualBox)</span><span class="skill-badge acquis">✓ Acquis</span></div></div></div>
+      <div class="skill-card"><div class="skill-header"><div class="skill-icon">🐧</div><div class="skill-name">Systèmes</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Linux (Debian / Ubuntu)</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">Windows Server / AD</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">Virtualisation (Proxmox / VirtualBox)</span><span class="skill-badge acquis">✓ Acquis</span></div></div></div>
       <div class="skill-card"><div class="skill-header"><div class="skill-icon">🔒</div><div class="skill-name">Sécurité &amp; Outils</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Wireshark / Nmap</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">Zabbix / Supervision</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">HTML / CSS / bases web</span><span class="skill-badge cours">📖 Vu en cours</span></div></div></div>
     </div>
   </section>
@@ -904,7 +827,7 @@
     <div class="section-header"><div class="section-tag">// 04 — Expériences</div><h2 class="section-title">Stages &amp; expériences</h2><div class="section-sub">Mes immersions en entreprise dans le cadre du BTS SIO.</div></div>
     <div class="stages-grid">
       <div class="stage-card"><div class="stage-header"><div class="stage-company">Haut-Commissariat de la NC</div><div class="stage-period">Oct. — Nov. 2025</div></div><div class="stage-role">Technicien réseau / Stagiaire SISR</div><div class="stage-desc">Participation à la maintenance du parc informatique, câblage réseau, configuration de switches et assistance utilisateurs. Découverte de l'environnement professionnel IT en entreprise.</div><div class="stage-skills"><span class="sskill">Câblage</span><span class="sskill">Switch</span><span class="sskill">Support N1</span><span class="sskill">Active Directory</span></div></div>
-      <div class="stage-card"><div class="stage-header"><div class="stage-company">Entreprise [à compléter]</div><div class="stage-period">Janv. — Fév. 2026</div></div><div class="stage-role">Administrateur systèmes / Stagiaire</div><div class="stage-desc">Administration de serveurs Linux, mise à jour des configurations réseau, participation à la supervision des équipements et rédaction de documentations techniques.</div><div class="stage-skills"><span class="sskill">Linux</span><span class="sskill">Supervision</span><span class="sskill">Documentation</span><span class="sskill">Bash</span></div></div>
+      <div class="stage-card"><div class="stage-header"><div class="stage-company">Entreprise [à compléter]</div><div class="stage-period">Janv. — Fév. 2026</div></div><div class="stage-role">Stagiaire en administration systèmes</div><div class="stage-desc">Administration de serveurs Linux, mise à jour des configurations réseau, participation à la supervision des équipements et rédaction de documentations techniques.</div><div class="stage-skills"><span class="sskill">Linux</span><span class="sskill">Supervision</span><span class="sskill">Documentation</span><span class="sskill">Bash</span></div></div>
     </div>
   </section>
 
@@ -924,10 +847,10 @@
   <section id="projets">
     <div class="section-header"><div class="section-tag">// 06 — Projets</div><h2 class="section-title">Mes réalisations</h2><div class="section-sub">Projets réalisés en cours, en TP et en autonomie dans le cadre de mon BTS SIO.</div></div>
     <div class="projets-grid">
-      <div class="projet-card"><div class="projet-icon">🖧</div><div class="projet-tags"><span class="tag">Réseau</span><span class="tag tag-accent">Cisco Packet Tracer</span><span class="tag">VLAN</span></div><div class="projet-title">Architecture réseau d'entreprise</div><div class="projet-desc">Conception et simulation d'une infrastructure réseau complète pour une entreprise fictive : segmentation en VLANs, routage inter-VLAN, configuration DHCP, ACL et redondance avec HSRP. Réalisé sous Cisco Packet Tracer avec documentation technique complète.</div><a href="#" class="projet-link">Voir le projet →</a></div>
-      <div class="projet-card"><div class="projet-icon">🔒</div><div class="projet-tags"><span class="tag tag-accent">Sécurité</span><span class="tag">Linux</span></div><div class="projet-title">Mise en place d'un pare-feu</div><div class="projet-desc">Installation et configuration d'un pare-feu en VM : règles de filtrage et monitoring des flux réseau (HIDS & IDS).</div><a href="#" class="projet-link">Voir le projet →</a></div>
-      <div class="projet-card"><div class="projet-icon">🐧</div><div class="projet-tags"><span class="tag">Linux</span><span class="tag">Serveur</span></div><div class="projet-title">Administration serveur Proxmox</div><div class="projet-desc">Déploiement et administration d'un hyperviseur Proxmox : création de VMs, gestion des ressources et sauvegarde des environnements virtuels.</div><a href="#" class="projet-link">Voir le projet →</a></div>
-      <div class="projet-card"><div class="projet-icon">📡</div><div class="projet-tags"><span class="tag">Supervision</span><span class="tag tag-accent">Zabbix</span></div><div class="projet-title">Supervision réseau avec Zabbix</div><div class="projet-desc">Mise en œuvre d'une solution de supervision réseau : installation Zabbix, ajout d'hôtes, création de triggers et tableaux de bord d'alertes en temps réel.</div><a href="#" class="projet-link">Voir le projet →</a></div>
+      <div class="projet-card"><div class="projet-icon">🖧</div><div class="projet-tags"><span class="tag">Réseau</span><span class="tag tag-accent">Cisco Packet Tracer</span><span class="tag">VLAN</span></div><div class="projet-title">Architecture réseau d'entreprise</div><div class="projet-desc">Conception et simulation d'une infrastructure réseau complète pour une entreprise fictive : segmentation en VLANs, routage inter-VLAN, configuration DHCP, ACL et redondance avec HSRP. Réalisé sous Cisco Packet Tracer avec documentation technique complète.</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
+      <div class="projet-card"><div class="projet-icon">🔒</div><div class="projet-tags"><span class="tag tag-accent">Sécurité</span><span class="tag">Linux</span></div><div class="projet-title">Mise en place d'un pare-feu</div><div class="projet-desc">Installation et configuration d'un pare-feu en VM : règles de filtrage et monitoring des flux réseau (HIDS & IDS).</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
+      <div class="projet-card"><div class="projet-icon">🐧</div><div class="projet-tags"><span class="tag">Linux</span><span class="tag">Serveur</span></div><div class="projet-title">Administration serveur Proxmox</div><div class="projet-desc">Déploiement et administration d'un hyperviseur Proxmox : création de VMs, gestion des ressources et sauvegarde des environnements virtuels.</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
+      <div class="projet-card"><div class="projet-icon">📡</div><div class="projet-tags"><span class="tag">Supervision</span><span class="tag tag-accent">Zabbix</span></div><div class="projet-title">Supervision réseau avec Zabbix</div><div class="projet-desc">Mise en œuvre d'une solution de supervision réseau : installation Zabbix, ajout d'hôtes, création de triggers et tableaux de bord d'alertes en temps réel.</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
     </div>
   </section>
 
@@ -1001,9 +924,9 @@
 
   <section id="cv">
     <div class="cv-block">
-      <div class="cv-title">📄 Mon Curriculum Vitae</div>
+      <div class="section-tag" style="color:#fff; opacity:0.85;">// 08 — CV</div><div class="cv-title">📄 Mon Curriculum Vitae</div>
       <p style="margin-top:0.5rem; opacity:0.9">Version la plus récente — à jour 2026</p>
-      <a href="#" class="cv-link" id="cvLinkBtn">⬇️ Télécharger mon CV (PDF)</a>
+      <a href="cv-yoran-tairio.pdf" class="cv-link" target="_blank" rel="noopener">⬇️ Télécharger mon CV (PDF)</a>
       <p style="margin-top:1rem; font-size:0.7rem; opacity:0.7">Format PDF • Mis à jour régulièrement</p>
     </div>
   </section>
@@ -1011,70 +934,18 @@
   <section id="contact">
     <div class="section-header"><div class="section-tag">// 09 — Contact</div><h2 class="section-title">Travaillons ensemble</h2><div class="section-sub">Vous cherchez un stagiaire motivé en SISR, ou vous avez un projet sur lequel je peux contribuer ? N'hésitez pas à me contacter, je réponds rapidement.</div></div>
     <div class="contact-grid">
-      <div class="contact-info"><h3 style="margin-bottom:1rem">📬 Me joindre</h3><p>Nouvelle‑Calédonie • disponible pour alternance/stage</p><div class="contact-links"><a href="mailto:yoran.tairio@gmail.com" class="contact-link">✉️ yoran.tairio@gmail.com</a><a href="#" class="contact-link">💼 linkedin.com/in/yoran-tairio</a><a href="#" class="contact-link">📍 Nouméa, Nouvelle-Calédonie</a></div></div>
-      <div class="contact-form"><h3 style="margin-bottom:1rem">✍️ Envoyer un message</h3><p style="margin-bottom:1rem; font-size:0.8rem; color:var(--text-muted);">Remplissez ce formulaire et je vous répondrai sous 24h.</p><input type="text" placeholder="Votre nom"/><input type="email" placeholder="Votre email"/><input type="text" placeholder="Objet"/><textarea rows="4" placeholder="Votre message..."></textarea><button>Envoyer →</button></div>
+      <div class="contact-info"><h3 style="margin-bottom:1rem">📬 Me joindre</h3><p>Nouvelle‑Calédonie • disponible pour alternance/stage</p><div class="contact-links"><a href="mailto:yoran.tairio@gmail.com" class="contact-link">✉️ yoran.tairio@gmail.com</a><!-- LinkedIn : remets la ligne avec ton vrai lien, par ex. <a href="https://www.linkedin.com/in/TON-PROFIL" class="contact-link" target="_blank" rel="noopener">💼 LinkedIn</a> --><div class="contact-link">📍 Nouméa, Nouvelle-Calédonie</div></div></div>
+      <form class="contact-form" id="contactForm"><h3 style="margin-bottom:1rem">✍️ Envoyer un message</h3><p style="margin-bottom:1rem; font-size:0.8rem; color:var(--text-muted);">Votre logiciel de messagerie s'ouvrira avec le message prêt à envoyer.</p><input type="text" id="cNom" placeholder="Votre nom" required/><input type="text" id="cObjet" placeholder="Objet" required/><textarea rows="4" id="cMessage" placeholder="Votre message..." required></textarea><button type="submit">Envoyer →</button></form>
     </div>
   </section>
 
   <footer>
     <div style="font-weight:800; background:linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent;">TAIRIO Yoran</div>
     <p>© 2026 — BTS SIO SISR · Nouvelle-Calédonie</p>
-    <p>Fait avec ❤️ en HTML/CSS — Portfolio futuriste</p>
+    <p>Réalisé en HTML/CSS · Hébergé sur GitHub Pages</p>
   </footer>
 
   <script>
-    const cursor = document.querySelector('.cursor');
-    const trail = document.querySelector('.cursor-trail');
-    let mouseX = 0, mouseY = 0;
-    let trailX = 0, trailY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.transform = `translate3d(${mouseX - 5}px, ${mouseY - 5}px, 0)`;
-      trailX += (mouseX - trailX) * 0.15;
-      trailY += (mouseY - trailY) * 0.15;
-      trail.style.transform = `translate3d(${trailX - 16}px, ${trailY - 16}px, 0)`;
-    });
-
-    document.addEventListener('click', (e) => {
-      for (let i = 0; i < 8; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = e.clientX + 'px';
-        particle.style.top = e.clientY + 'px';
-        particle.style.background = `hsl(${Math.random() * 60 + 210}, 100%, 60%)`;
-        particle.style.opacity = '0.8';
-        document.body.appendChild(particle);
-        let life = 1;
-        const animateParticle = () => {
-          life -= 0.03;
-          if (life <= 0) { particle.remove(); return; }
-          particle.style.opacity = life * 0.6;
-          requestAnimationFrame(animateParticle);
-        };
-        requestAnimationFrame(animateParticle);
-      }
-    });
-
-    const interactive = document.querySelectorAll('a, button, .projet-card, .skill-card, .stage-card, .veille-card, .loisir-card');
-    interactive.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform = `scale(2.5)`;
-        cursor.style.background = 'var(--accent)';
-        trail.style.width = '48px';
-        trail.style.height = '48px';
-        trail.style.borderColor = 'var(--accent)';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = `scale(1)`;
-        cursor.style.background = 'var(--primary)';
-        trail.style.width = '32px';
-        trail.style.height = '32px';
-        trail.style.borderColor = 'var(--accent)';
-      });
-    });
-
     function animateLoisirSkills() {
       const fillBars = document.querySelectorAll('.bar-fill');
       fillBars.forEach(bar => {
@@ -1093,53 +964,25 @@
     window.addEventListener('scroll', animateLoisirSkills);
     window.addEventListener('load', animateLoisirSkills);
 
-    const modal = document.getElementById('cvModal');
-    const cvLinkBtn = document.getElementById('cvLinkBtn');
-    const fileInput = document.getElementById('cvFileInput');
-    const confirmBtn = document.getElementById('confirmCvBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
+    const menuBtn = document.getElementById('menuBtn');
+    const menuLinks = document.getElementById('menuLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = menuLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    menuLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menuLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
 
-    function downloadFile(file) {
-      const url = URL.createObjectURL(file);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = file.name;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    cvLinkBtn.addEventListener('click', (e) => {
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      modal.style.display = 'flex';
-    });
-
-    closeModalBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      fileInput.value = '';
-    });
-
-    confirmBtn.addEventListener('click', () => {
-      if (fileInput.files.length > 0) {
-        const selectedFile = fileInput.files[0];
-        if (selectedFile.type === 'application/pdf') {
-          downloadFile(selectedFile);
-          modal.style.display = 'none';
-          fileInput.value = '';
-        } else {
-          alert('Veuillez sélectionner un fichier PDF valide.');
-        }
-      } else {
-        alert('📄 Veuillez sélectionner votre fichier CV (PDF)');
-      }
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        fileInput.value = '';
-      }
+      const nom = document.getElementById('cNom').value;
+      const objet = document.getElementById('cObjet').value;
+      const message = document.getElementById('cMessage').value;
+      window.location.href = 'mailto:yoran.tairio@gmail.com'
+        + '?subject=' + encodeURIComponent(objet)
+        + '&body=' + encodeURIComponent(message + '\n\n' + nom);
     });
 
     const sections = document.querySelectorAll('section[id]');
