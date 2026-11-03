@@ -219,7 +219,7 @@
 
     .projets-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
       gap: 1.8rem;
     }
     .projet-card {
@@ -277,6 +277,32 @@
       align-items: center;
       gap: 0.3rem;
     }
+
+
+    .group-title { font-size: 1.25rem; font-weight: 700; margin: 3rem 0 0.4rem; }
+    .group-title:first-of-type { margin-top: 0; }
+    .group-sub { color: var(--text-muted); font-size: 0.9rem; max-width: 640px; margin-bottom: 1.5rem; }
+    .e6-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 1.8rem; }
+    .e6-list { list-style: none; display: grid; gap: 1rem; margin-top: 1rem; }
+    .e6-step { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border); }
+    .e6-meta { display: flex; flex-direction: column; gap: 0.2rem; }
+    .e6-sem { font-weight: 700; color: var(--primary); font-size: 0.85rem; }
+    .e6-date { font-size: 0.75rem; color: var(--text-muted); }
+    .e6-need { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .e6-var { font-family: 'Space Mono', monospace; font-size: 0.65rem; font-weight: 400; color: var(--accent); background: rgba(139,92,246,0.1); padding: 0.1rem 0.5rem; border-radius: 20px; white-space: nowrap; }
+    .e6-sol { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+    .proxy-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; align-items: center; margin-top: 0.8rem; }
+    .proxy-text { display: grid; gap: 0.7rem; font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
+    .proxy-text strong { color: var(--text); }
+    .proxy-figure { overflow-x: auto; }
+    .arch { width: 100%; min-width: 420px; height: auto; display: block; }
+    @media (max-width: 860px) { .proxy-layout { grid-template-columns: minmax(0, 1fr); } }
+    .other-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.2rem; }
+    .other-card { background: var(--surface-2); border-radius: 18px; padding: 1.2rem 1.4rem; }
+    .other-eq { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+    .other-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .other-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    @media (max-width: 520px) { .e6-step { grid-template-columns: 1fr; gap: 0.3rem; } }
 
     .skills-grid {
       display: grid;
@@ -470,7 +496,8 @@
 
     .loisirs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 620px;
       gap: 2rem;
     }
     .loisir-card {
@@ -574,8 +601,6 @@
       border-radius: 99px;
       transition: width 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
-    .blood-fill { background: linear-gradient(90deg, #E24B4A, #A32D2D); }
-    .roblox-fill { background: linear-gradient(90deg, #378ADD, #534AB7); }
     .poker-fill { background: linear-gradient(90deg, #D4AF37, #B8860B); }
     .skill-bar-item .percent {
       min-width: 35px;
@@ -598,8 +623,6 @@
     .badge-game:hover {
       transform: scale(1.02);
     }
-    .blood-badge { background: rgba(226, 75, 74, 0.1); color: #A32D2D; }
-    .roblox-badge { background: rgba(55, 138, 221, 0.1); color: #185FA5; }
     .poker-badge { background: linear-gradient(135deg, #D4AF37, #B8860B); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
 
     /* Carte Poker avec fond casino Nouvelle-Calédonie */
@@ -765,7 +788,7 @@
 
   <nav>
     <div class="logo">YT.</div>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuLinks">☰ Menu</button>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuLinks">Menu</button>
     <ul id="menuLinks">
       <li><a href="#parcours">Parcours</a></li>
       <li><a href="#competences">Compétences</a></li>
@@ -781,15 +804,14 @@
 
   <div class="hero-section">
     <div class="hero-content">
-      <div class="hero-badge">✨ Portfolio BTS SIO • Spé SISR</div>
+      <div class="hero-badge">Portfolio — BTS SIO, option SISR</div>
       <div class="hero-main-title">Systèmes, réseaux <span>& cybersécurité</span></div>
       <div class="hero-name">TAIRIO Yoran</div>
-      <div class="hero-bio">
-        Je suis actuellement étudiant en BTS SIO option SISR (Solutions d'Infrastructure, Systèmes et Réseaux) en Nouvelle-Calédonie. Je construis des compétences solides en infrastructure IT à travers ma formation, mes projets personnels et mes stages en entreprise. Mon objectif est de devenir un expert en sécurité des systèmes d'information et de contribuer à la protection des données dans un monde de plus en plus connecté.
+      <div class="hero-bio">Je suis étudiant en BTS SIO (Services informatiques aux organisations), option SISR (solutions d'infrastructure, systèmes et réseaux), en Nouvelle-Calédonie. Je développe des compétences solides en infrastructure informatique à travers ma formation, mes projets personnels et mes stages en entreprise. Mon objectif est de devenir un expert en sécurité des systèmes d'information et de contribuer à la protection des données dans un monde de plus en plus connecté.
       </div>
       <div class="btn-group">
-        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">📬 Me contacter</button>
-        <button class="btn-outline" onclick="document.getElementById('projets').scrollIntoView({behavior:'smooth'})">🚀 Voir mes projets</button>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Me contacter</button>
+        <button class="btn-outline" onclick="document.getElementById('projets').scrollIntoView({behavior:'smooth'})">Voir mes projets</button>
       </div>
     </div>
   </div>
@@ -797,145 +819,151 @@
   <section id="parcours">
     <div class="section-header"><div class="section-tag">// 01 — Parcours</div><h2 class="section-title">Mon cursus</h2><div class="section-sub">Mon itinéraire scolaire et mes formations dans l'informatique.</div></div>
     <div class="timeline">
-      <div class="timeline-item"><div class="timeline-date">2025 → 2026</div><div class="timeline-content"><div class="timeline-title">BTS SIO — Spécialité SISR</div><div class="timeline-place">📍 Lycée Dick Ukeiwë — Nouméa, Nouvelle-Calédonie</div><div class="timeline-desc">Formation en 2 ans en Solutions d'Infrastructure, Systèmes et Réseaux. Apprentissage de l'administration système Linux/Windows, la gestion des réseaux, la cybersécurité et les services cloud. Projets en TP et en entreprise via des stages.</div></div></div>
-      <div class="timeline-item"><div class="timeline-date">2022 → 2024</div><div class="timeline-content"><div class="timeline-title">Baccalauréat Général</div><div class="timeline-place">📍 Lycée A. Anova — Nouvelle-Calédonie</div><div class="timeline-desc">Obtention du baccalauréat avec les spécialités Mathématiques & NSI (Numérique et Sciences Informatiques). Premières bases en programmation, réseaux et algorithmique.</div></div></div>
+      <div class="timeline-item"><div class="timeline-date">2025 → 2026</div><div class="timeline-content"><div class="timeline-title">BTS SIO — option SISR</div><div class="timeline-place">Lycée Dick Ukeiwë — Nouméa, Nouvelle-Calédonie</div><div class="timeline-desc">Formation en deux ans en solutions d'infrastructure, systèmes et réseaux : administration des systèmes Linux et Windows, gestion des réseaux et cybersécurité. Projets en travaux pratiques et en entreprise lors des stages.</div></div></div>
+      <div class="timeline-item"><div class="timeline-date">2022 → 2024</div><div class="timeline-content"><div class="timeline-title">Baccalauréat Général</div><div class="timeline-place">Lycée A. Anova — Nouvelle-Calédonie</div><div class="timeline-desc">Obtention du baccalauréat avec les spécialités mathématiques et NSI (numérique et sciences informatiques). Premières bases en programmation, réseaux et algorithmique.</div></div></div>
     </div>
   </section>
 
   <section id="competences">
-    <div class="section-header"><div class="section-tag">// 02 — Compétences</div><h2 class="section-title">Ce que je maîtrise</h2><div class="section-sub">Des compétences acquises en cours, en TP et par la pratique personnelle.</div></div>
+    <div class="section-header"><div class="section-tag">// 02 — Compétences</div><h2 class="section-title">Mes compétences</h2><div class="section-sub">Des compétences acquises en cours, en travaux pratiques, en stage et par la pratique personnelle.</div></div>
     <div class="skills-grid">
-      <div class="skill-card"><div class="skill-header"><div class="skill-icon">🖧</div><div class="skill-name">Réseaux</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">TCP/IP — Routage</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">VLAN / Switching</span><span class="skill-badge cours">📖 Vu en cours</span></div><div class="skill-item"><span class="skill-item-name">Cisco IOS / Packet Tracer</span><span class="skill-badge acquis">✓ Acquis</span></div></div></div>
-      <div class="skill-card"><div class="skill-header"><div class="skill-icon">🐧</div><div class="skill-name">Systèmes</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Linux (Debian / Ubuntu)</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">Windows Server / AD</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">Virtualisation (Proxmox / VirtualBox)</span><span class="skill-badge acquis">✓ Acquis</span></div></div></div>
-      <div class="skill-card"><div class="skill-header"><div class="skill-icon">🔒</div><div class="skill-name">Sécurité &amp; Outils</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Wireshark / Nmap</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">Zabbix / Supervision</span><span class="skill-badge acquis">✓ Acquis</span></div><div class="skill-item"><span class="skill-item-name">HTML / CSS / bases web</span><span class="skill-badge cours">📖 Vu en cours</span></div></div></div>
+      <div class="skill-card"><div class="skill-header"><div class="skill-name">Réseaux</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">TCP/IP — routage</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">VLAN / commutation</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">Cisco IOS / Packet Tracer</span><span class="skill-badge acquis">Acquis</span></div></div></div>
+      <div class="skill-card"><div class="skill-header"><div class="skill-name">Systèmes</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Linux (Debian / Ubuntu)</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">Windows Server / AD</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">Virtualisation (Proxmox / VirtualBox)</span><span class="skill-badge acquis">Acquis</span></div></div></div>
+      <div class="skill-card"><div class="skill-header"><div class="skill-name">Sécurité &amp; Outils</div></div><div class="skill-list"><div class="skill-item"><span class="skill-item-name">Wireshark / Nmap</span><span class="skill-badge cours">Vu en cours</span></div><div class="skill-item"><span class="skill-item-name">Zabbix / Supervision</span><span class="skill-badge acquis">Acquis</span></div><div class="skill-item"><span class="skill-item-name">HTML / CSS (bases du web)</span><span class="skill-badge cours">Vu en cours</span></div></div></div>
     </div>
   </section>
 
   <section id="certifications">
     <div class="section-header"><div class="section-tag">// 03 — Certifications</div><h2 class="section-title">Mes certifications</h2><div class="section-sub">Certifications obtenues ou en cours de préparation pour valider mes compétences techniques.</div></div>
     <div class="certs-grid">
-      <div class="cert-card"><div class="cert-icon">🌐</div><div class="cert-info"><div class="cert-name">Cisco CCNA — Introduction to Networks</div><div class="cert-org">Cisco Networking Academy</div><div class="cert-desc">Fondamentaux des réseaux : modèle OSI, TCP/IP, routage statique, configuration IOS de base.</div><div class="cert-badge">✅ Obtenu</div></div></div>
-      <div class="cert-card"><div class="cert-icon">🐧</div><div class="cert-info"><div class="cert-name">NDG Linux Essentials</div><div class="cert-org">Cisco / Linux Professional Institute</div><div class="cert-desc">Commandes Linux essentielles, gestion des fichiers, permissions et premiers scripts shell.</div><div class="cert-badge">🔄 En cours</div></div></div>
-      <div class="cert-card"><div class="cert-icon">🔐</div><div class="cert-info"><div class="cert-name">Introduction to Cybersecurity</div><div class="cert-org">Cisco Networking Academy</div><div class="cert-desc">Concepts fondamentaux de la cybersécurité : menaces, vulnérabilités, bonnes pratiques de protection.</div><div class="cert-badge">✅ Obtenu</div></div></div>
-      <div class="cert-card"><div class="cert-icon">☁️</div><div class="cert-info"><div class="cert-name">AWS Cloud Practitioner Essentials</div><div class="cert-org">Amazon Web Services</div><div class="cert-desc">Introduction aux services cloud AWS : EC2, S3, IAM et concepts d'architecture cloud.</div><div class="cert-badge">🔄 En cours</div></div></div>
-      <div class="cert-card"><div class="cert-icon">🛡️</div><div class="cert-info"><div class="cert-name">CompTIA Security+</div><div class="cert-org">CompTIA</div><div class="cert-desc">Certification internationale en cybersécurité couvrant les menaces, les politiques de sécurité et la cryptographie.</div><div class="cert-badge">🔄 En cours</div></div></div>
-      <div class="cert-card"><div class="cert-icon">📡</div><div class="cert-info"><div class="cert-name">Cisco CCNA — Switching, Routing & WAN</div><div class="cert-org">Cisco Networking Academy</div><div class="cert-desc">Approfondissement du routage, switching avancé, VLANs, STP et protocoles WAN.</div><div class="cert-badge">✅ Obtenu</div></div></div>
+      <div class="cert-card"><div class="cert-info"><div class="cert-name">Cisco CCNA — Introduction to Networks</div><div class="cert-org">Cisco Networking Academy</div><div class="cert-desc">Fondamentaux des réseaux : modèle OSI, TCP/IP, routage statique et configuration de base de Cisco IOS.</div><div class="cert-badge">Obtenu</div></div></div>
+      <div class="cert-card"><div class="cert-info"><div class="cert-name">NDG Linux Essentials</div><div class="cert-org">Cisco / Linux Professional Institute</div><div class="cert-desc">Commandes Linux essentielles, gestion des fichiers, droits d'accès et premiers scripts shell.</div><div class="cert-badge">Obtenu</div></div></div>
+      <div class="cert-card"><div class="cert-info"><div class="cert-name">Introduction to Cybersecurity</div><div class="cert-org">Cisco Networking Academy</div><div class="cert-desc">Concepts fondamentaux de la cybersécurité : menaces, vulnérabilités, bonnes pratiques de protection.</div><div class="cert-badge">Obtenu</div></div></div>
+      
+      
+      <div class="cert-card"><div class="cert-info"><div class="cert-name">Cisco CCNA — Switching, Routing & WAN</div><div class="cert-org">Cisco Networking Academy</div><div class="cert-desc">Approfondissement du routage, commutation avancée, VLAN, protocole STP et réseaux étendus (WAN).</div><div class="cert-badge">Obtenu</div></div></div>
     </div>
   </section>
 
   <section id="stages">
-    <div class="section-header"><div class="section-tag">// 04 — Expériences</div><h2 class="section-title">Stages &amp; expériences</h2><div class="section-sub">Mes immersions en entreprise dans le cadre du BTS SIO.</div></div>
+    <div class="section-header"><div class="section-tag">// 04 — Expériences</div><h2 class="section-title">Stages &amp; expériences</h2><div class="section-sub">Mes stages en entreprise dans le cadre du BTS SIO.</div></div>
     <div class="stages-grid">
-      <div class="stage-card"><div class="stage-header"><div class="stage-company">Haut-Commissariat de la NC</div><div class="stage-period">Oct. — Nov. 2025</div></div><div class="stage-role">Technicien réseau / Stagiaire SISR</div><div class="stage-desc">Participation à la maintenance du parc informatique, câblage réseau, configuration de switches et assistance utilisateurs. Découverte de l'environnement professionnel IT en entreprise.</div><div class="stage-skills"><span class="sskill">Câblage</span><span class="sskill">Switch</span><span class="sskill">Support N1</span><span class="sskill">Active Directory</span></div></div>
-      <div class="stage-card"><div class="stage-header"><div class="stage-company">Entreprise [à compléter]</div><div class="stage-period">Janv. — Fév. 2026</div></div><div class="stage-role">Stagiaire en administration systèmes</div><div class="stage-desc">Administration de serveurs Linux, mise à jour des configurations réseau, participation à la supervision des équipements et rédaction de documentations techniques.</div><div class="stage-skills"><span class="sskill">Linux</span><span class="sskill">Supervision</span><span class="sskill">Documentation</span><span class="sskill">Bash</span></div></div>
+      <div class="stage-card"><div class="stage-header"><div class="stage-company">Haut-Commissariat de la République en Nouvelle-Calédonie</div><div class="stage-period">Octobre — novembre 2025</div></div><div class="stage-role">Stagiaire technicien réseau</div><div class="stage-desc">Participation à la maintenance du parc informatique, câblage réseau, configuration de switches et assistance aux utilisateurs. Découverte de l'environnement professionnel d'un service informatique.</div><div class="stage-skills"><span class="sskill">Câblage</span><span class="sskill">Switch</span><span class="sskill">Support niveau 1</span><span class="sskill">Active Directory</span></div></div>
+      <div class="stage-card"><div class="stage-header"><div class="stage-company">GIE Interiles</div><div class="stage-period">29 juin — 7 août 2026</div></div><div class="stage-role">Stagiaire en supervision réseau</div><div class="stage-desc">Déploiement de proxys Zabbix dans les filiales du GIE, reliés au serveur Zabbix central. Objectif : mesurer en temps réel la latence des liaisons de chaque filiale. Le proxy collecte les données sur place puis les transmet au serveur central, ce qui allège sa charge et accélère la remontée des mesures.</div><div class="stage-skills"><span class="sskill">Serveur Zabbix</span><span class="sskill">Proxy Zabbix</span><span class="sskill">Supervision</span><span class="sskill">Latence réseau</span><span class="sskill">Multi-sites</span></div></div>
     </div>
   </section>
 
   <section id="veille">
-    <div class="section-header"><div class="section-tag">// 05 — Veille technologique SOC</div><h2 class="section-title">L'Évolution du SOC : de la Préhistoire à l'IA</h2><div class="section-sub">Veille active sur les centres d'opération de sécurité, l'essor de l'IA et les actualités récentes marquantes.</div></div>
+    <div class="section-header"><div class="section-tag">// 05 — Veille technologique SOC</div><h2 class="section-title">L'évolution du SOC : des débuts à l'intelligence artificielle</h2><div class="section-sub">Veille sur les centres des opérations de sécurité (SOC), l'essor de l'intelligence artificielle et les actualités récentes.</div></div>
     <div class="veille-grid">
-      <div class="veille-card history-card"><div class="veille-head"><div class="veille-icon">📜</div><div class="veille-theme">Mini-Cours : Histoire du SOC</div></div><div class="timeline-soc"><div class="soc-era"><span class="soc-era-year">1990 - 2000</span><span class="soc-era-desc"><strong>⚫ L'ère préhistorique</strong> — Les premiers SOC apparaissent dans les banques et les institutions militaires. Surveillance manuelle des logs, corrélation basique. Naissance des premiers SIEM rudimentaires.</span></div><div class="soc-era"><span class="soc-era-year">2000 - 2010</span><span class="soc-era-desc"><strong>🔵 La professionnalisation</strong> — Généralisation des SOC dans les grandes entreprises. Apparition des premiers CERT (Computer Emergency Response Teams). Les analystes passent leurs nuits à surveiller des alertes.</span></div><div class="soc-era"><span class="soc-era-year">2010 - 2020</span><span class="soc-era-desc"><strong>🟣 L'ère du Big Data</strong> — Explosion des volumes de données. Les SOC adoptent les SIEM nouvelle génération (Splunk, QRadar). Automatisation des tâches répétitives. Naissance du SOAR.</span></div><div class="soc-era"><span class="soc-era-year">2020 - 2025</span><span class="soc-era-desc"><strong>🟢 L'IA entre en jeu</strong> — Machine Learning pour la détection d'anomalies. Réduction drastique des faux positifs. Les SOC deviennent prédictifs plutôt que réactifs.</span></div><div class="soc-era"><span class="soc-era-year">2025 →</span><span class="soc-era-desc"><strong>✨ Le SOC augmenté</strong> — IA générative, SOC autonomes, investigation en langage naturel. Le SOC du futur est hybride : humain + IA collaborent en temps réel.</span></div></div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-icon">🧠</div><div class="veille-theme">Google Cloud Sec-Ops : SOC augmenté par Gemini</div></div><div class="veille-desc"><span class="tag" style="background:rgba(59,130,246,0.2); color:var(--primary);">⚡ Actualité majeure</span> — Google dévoile une offre "Autonomous Security Operations" avec Gemini intégré nativement. Réduction de 70% du temps d'investigation et génération automatique de playbooks. Une rupture dans l'industrie du SOC.</div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-icon">🤖</div><div class="veille-theme">Microsoft Security Copilot généralisé aux SOC</div></div><div class="veille-desc">Microsoft annonce l'intégration de Copilot for Security dans Sentinel. Les analystes SOC peuvent désormais interroger les logs en langage naturel, synthétiser des incidents complexes et générer des rapports en quelques secondes. Adoption massive : +200% d'utilisation en 4 mois.</div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-icon">🏆</div><div class="veille-theme">Le SOC d'Airbus démontre l'IA à grande échelle</div></div><div class="veille-desc">Airbus CyberSecurity publie un cas d'usage : réduction de 82% des faux positifs et détection moyenne d'une menace en moins de 3 minutes. Utilisation de modèles d'apprentissage profond sur des millions d'événements par seconde.</div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-icon">🛡️</div><div class="veille-theme">SOC autonome bloque une attaque en 47 secondes</div></div><div class="veille-desc">Darktrace rapporte un cas réel : un SOC basé sur l'IA a détecté et isolé un ransomware émergent en 47 secondes, évitant une paralysie totale d'un hôpital. L'évolution vers des SOC autonomes et préventifs n'est plus de la science-fiction.</div></div>
-      <div class="veille-card"><div class="veille-head"><div class="veille-icon">📈</div><div class="veille-theme">SOC-as-a-Code et MDR nouvelle génération</div></div><div class="veille-desc">Les SOC évoluent vers des infrastructures "as code" et des services de détection managée (MDR) boostés à l'IA. Les analystes seront assistés par des co-pilotes IA permanents. La puissance d'un SOC dépasse désormais l'humain seul.</div></div>
+      <div class="veille-card history-card"><div class="veille-head"><div class="veille-theme">Histoire du SOC</div></div><div class="timeline-soc"><div class="soc-era"><span class="soc-era-year">1990 - 2000</span><span class="soc-era-desc"><strong>Les débuts</strong>— Les premiers SOC apparaissent dans les banques et les institutions militaires. Surveillance manuelle des journaux et corrélation simple des événements.</span></div><div class="soc-era"><span class="soc-era-year">2000 - 2010</span><span class="soc-era-desc"><strong>La professionnalisation</strong>— Les SOC se généralisent dans les grandes entreprises. Apparition des premiers outils SIEM (gestion des informations et des événements de sécurité) et développement des CERT (équipes de réponse aux incidents).</span></div><div class="soc-era"><span class="soc-era-year">2010 - 2020</span><span class="soc-era-desc"><strong>L'ère des données massives</strong>— Explosion des volumes de données. Les SOC adoptent des SIEM de nouvelle génération (Splunk, QRadar) et automatisent les tâches répétitives grâce au SOAR (orchestration, automatisation et réponse).</span></div><div class="soc-era"><span class="soc-era-year">2020 - 2025</span><span class="soc-era-desc"><strong>L'arrivée de l'intelligence artificielle</strong>— L'apprentissage automatique sert à détecter les anomalies et à réduire les faux positifs. Les SOC deviennent plus proactifs.</span></div><div class="soc-era"><span class="soc-era-year">2025 →</span><span class="soc-era-desc"><strong>Le SOC augmenté</strong>— Intelligence artificielle générative et investigation en langage naturel. Le SOC devient hybride : les analystes et l'intelligence artificielle travaillent ensemble en temps réel.</span></div></div></div>
+      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Google Security Operations : un SOC assisté par Gemini</div></div><div class="veille-desc">Google dévoile une offre "Autonomous Security Operations" avec Gemini intégré nativement. Réduction de 70% du temps d'investigation et génération automatique de playbooks. </div></div>
+      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Microsoft Security Copilot généralisé aux SOC</div></div><div class="veille-desc">Microsoft annonce l'intégration de Copilot for Security dans Sentinel. Les analystes peuvent désormais interroger les journaux en langage naturel, synthétiser des incidents complexes et générer des rapports en quelques secondes. </div></div>
+      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Le SOC d'Airbus démontre l'IA à grande échelle</div></div><div class="veille-desc">Airbus CyberSecurity publie un cas d'usage : réduction de 82% des faux positifs et détection moyenne d'une menace en moins de trois minutes. Utilisation de modèles d'apprentissage profond sur des millions d'événements par seconde.</div></div>
+      <div class="veille-card"><div class="veille-head"><div class="veille-theme">Un SOC autonome bloque une attaque en 47 secondes</div></div><div class="veille-desc">Darktrace rapporte un cas où sa solution d'intelligence artificielle a détecté et isolé un rançongiciel en 47 secondes dans un hôpital, avant qu'il ne paralyse les services.</div></div>
+      <div class="veille-card"><div class="veille-head"><div class="veille-theme">SOC « as code » et services MDR</div></div><div class="veille-desc">Les SOC évoluent vers des configurations décrites sous forme de code et vers des services de détection et de réponse managées (MDR) qui intègrent l'intelligence artificielle. Les analystes sont assistés par des copilotes en permanence.</div></div>
     </div>
-    <p style="color:var(--text-muted); margin-top:2rem; text-align:center; font-family:'Space Mono'; font-size:0.75rem;">🔍 Veille active : RSS feeds, alertes Google Scholar, conférences (RSAC, SSTIC) sur l'évolution des SOC dans le monde.</p>
+    <p style="color:var(--text-muted); margin-top:2rem; text-align:center; font-family:'Space Mono'; font-size:0.75rem;">Sources de veille : flux RSS (CERT-FR, sites spécialisés), alertes Google Scholar et conférences (RSA Conference, SSTIC).</p>
   </section>
 
   <section id="projets">
-    <div class="section-header"><div class="section-tag">// 06 — Projets</div><h2 class="section-title">Mes réalisations</h2><div class="section-sub">Projets réalisés en cours, en TP et en autonomie dans le cadre de mon BTS SIO.</div></div>
-    <div class="projets-grid">
-      <div class="projet-card"><div class="projet-icon">🖧</div><div class="projet-tags"><span class="tag">Réseau</span><span class="tag tag-accent">Cisco Packet Tracer</span><span class="tag">VLAN</span></div><div class="projet-title">Architecture réseau d'entreprise</div><div class="projet-desc">Conception et simulation d'une infrastructure réseau complète pour une entreprise fictive : segmentation en VLANs, routage inter-VLAN, configuration DHCP, ACL et redondance avec HSRP. Réalisé sous Cisco Packet Tracer avec documentation technique complète.</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
-      <div class="projet-card"><div class="projet-icon">🔒</div><div class="projet-tags"><span class="tag tag-accent">Sécurité</span><span class="tag">Linux</span></div><div class="projet-title">Mise en place d'un pare-feu</div><div class="projet-desc">Installation et configuration d'un pare-feu en VM : règles de filtrage et monitoring des flux réseau (HIDS & IDS).</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
-      <div class="projet-card"><div class="projet-icon">🐧</div><div class="projet-tags"><span class="tag">Linux</span><span class="tag">Serveur</span></div><div class="projet-title">Administration serveur Proxmox</div><div class="projet-desc">Déploiement et administration d'un hyperviseur Proxmox : création de VMs, gestion des ressources et sauvegarde des environnements virtuels.</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
-      <div class="projet-card"><div class="projet-icon">📡</div><div class="projet-tags"><span class="tag">Supervision</span><span class="tag tag-accent">Zabbix</span></div><div class="projet-title">Supervision réseau avec Zabbix</div><div class="projet-desc">Mise en œuvre d'une solution de supervision réseau : installation Zabbix, ajout d'hôtes, création de triggers et tableaux de bord d'alertes en temps réel.</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
+    <div class="section-header"><div class="section-tag">// 06 — Projets</div><h2 class="section-title">Mes réalisations</h2><div class="section-sub">Ateliers professionnels de l'épreuve E6, projets en travaux pratiques et projets personnels.</div></div>
+
+    <h3 class="group-title">Ateliers E6 — Équipe 6</h3>
+    <p class="group-sub">Six ateliers réalisés du 24 août au 2 octobre 2026, en deux cycles de trois semaines. Chaque semaine répond à un besoin précis de l'organisation.</p>
+    <div class="e6-grid">
+      <div class="projet-card"><div class="projet-tags"><span class="tag tag-accent">Cycle 1</span><span class="tag">Service Web</span></div><div class="projet-title">Serveur Web</div><ol class="e6-list"><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 28</span><span class="e6-date">24 – 28 août 2026</span></div><div class="e6-body"><div class="e6-need">Deux espaces Web distincts sur le même serveur <span class="e6-var">variante 3</span></div><div class="e6-sol">Configuration de deux hôtes virtuels sur un seul serveur Web, chacun avec son nom, son dossier et ses journaux.</div></div></li><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 29</span><span class="e6-date">31 août – 4 septembre 2026</span></div><div class="e6-body"><div class="e6-need">Portail interne de ressources pédagogiques <span class="e6-var">variante 1</span></div><div class="e6-sol">Installation du serveur Web et publication d'un portail accessible uniquement depuis le réseau interne.</div></div></li><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 30</span><span class="e6-date">7 – 11 septembre 2026</span></div><div class="e6-body"><div class="e6-need">Accès au portail par son nom <span class="e6-var">variante 2</span></div><div class="e6-sol">Création de l'enregistrement DNS et association du nom au site, pour ne plus passer par l'adresse IP.</div></div></li></ol></div>
+      <div class="projet-card"><div class="projet-tags"><span class="tag tag-accent">Cycle 2</span><span class="tag">Sécurité des journaux</span></div><div class="projet-title">Archivage et sauvegarde des journaux</div><ol class="e6-list"><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 31</span><span class="e6-date">14 – 18 septembre 2026</span></div><div class="e6-body"><div class="e6-need">Contrôle d'intégrité des archives <span class="e6-var">variante 3</span></div><div class="e6-sol">Calcul d'une empreinte (hachage SHA-256) pour chaque archive de journaux, puis vérification pour détecter toute modification.</div></div></li><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 32</span><span class="e6-date">21 – 25 septembre 2026</span></div><div class="e6-body"><div class="e6-need">Centralisation des journaux de plusieurs sources <span class="e6-var">variante 1</span></div><div class="e6-sol">Mise en place d'un serveur de journaux central (rsyslog) qui reçoit les journaux de plusieurs machines.</div></div></li><li class="e6-step"><div class="e6-meta"><span class="e6-sem">Semaine 33</span><span class="e6-date">28 septembre – 2 octobre 2026</span></div><div class="e6-body"><div class="e6-need">Rotation des journaux sans perte d'écriture <span class="e6-var">variante 2</span></div><div class="e6-sol">Configuration de la rotation automatique (logrotate) pour archiver les journaux sans interrompre leur écriture.</div></div></li></ol></div>
     </div>
+
+    <h3 class="group-title">Réalisation en entreprise — GIE Interiles</h3>
+    <p class="group-sub">Projet mené pendant mon stage du 29 juin au 7 août 2026.</p>
+    <div class="projet-card proxy-card">
+      <div class="projet-tags"><span class="tag tag-accent">Stage</span><span class="tag">Zabbix</span><span class="tag">Supervision multi-sites</span><span class="tag">Latence réseau</span></div>
+      <div class="projet-title">Conception d'une supervision par proxys Zabbix</div>
+      <div class="proxy-layout">
+        <div class="proxy-text">
+          <p><strong>Besoin.</strong> Connaître en temps réel la latence des liaisons de chaque filiale du GIE depuis le serveur Zabbix central.</p>
+          <p><strong>Solution.</strong> Un proxy Zabbix est installé dans chaque filiale. Il interroge sur place les équipements, mesure la latence, puis transmet les résultats au serveur central.</p>
+          <p><strong>Intérêt.</strong> Le serveur central est soulagé, la remontée des mesures est plus rapide, et chaque proxy garde ses données en mémoire si la liaison avec le siège est coupée, puis les renvoie au retour de la connexion.</p>
+        </div>
+        <div class="proxy-figure"><svg class="arch" viewBox="0 0 640 230" role="img" aria-label="Schéma : les proxys Zabbix des filiales envoient leurs mesures au serveur Zabbix central">
+  <rect x="220" y="14" width="200" height="54" rx="12" fill="var(--primary)"/>
+  <text x="320" y="38" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Serveur Zabbix central</text>
+  <text x="320" y="56" text-anchor="middle" fill="#fff" font-size="11" opacity="0.9">tableaux de bord et alertes</text>
+  <g stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 4" fill="none">
+    <path d="M110 140 L270 68"/><path d="M320 140 L320 68"/><path d="M530 140 L370 68"/>
+  </g>
+  <text x="178" y="96" fill="var(--text-muted)" font-size="11" text-anchor="middle">mesures</text>
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <rect x="30" y="140" width="160" height="44" rx="10" fill="var(--surface-2)" stroke="var(--accent)"/><text x="110" y="167" fill="var(--text)">Proxy — filiale A</text>
+    <rect x="240" y="140" width="160" height="44" rx="10" fill="var(--surface-2)" stroke="var(--accent)"/><text x="320" y="167" fill="var(--text)">Proxy — filiale B</text>
+    <rect x="450" y="140" width="160" height="44" rx="10" fill="var(--surface-2)" stroke="var(--accent)"/><text x="530" y="167" fill="var(--text)">Proxy — filiale C</text>
+  </g>
+  <g font-size="11" fill="var(--text-muted)" text-anchor="middle">
+    <text x="110" y="208">équipements de la filiale</text><text x="320" y="208">équipements de la filiale</text><text x="530" y="208">équipements de la filiale</text>
+  </g>
+</svg></div>
+      </div>
+    </div>
+
+    <h3 class="group-title">Projets en travaux pratiques et en autonomie</h3>
+    <div class="projets-grid">
+      <div class="projet-card"><div class="projet-tags"><span class="tag">Réseau</span><span class="tag tag-accent">Cisco Packet Tracer</span><span class="tag">VLAN</span></div><div class="projet-title">Architecture réseau d'entreprise</div><div class="projet-desc">Conception et simulation d'une infrastructure réseau complète pour une entreprise fictive : segmentation en VLAN, routage inter-VLAN, configuration DHCP, listes de contrôle d'accès (ACL) et redondance de passerelle avec HSRP. Réalisé sous Cisco Packet Tracer, avec une documentation technique complète.</div><!-- Ajoute ici le lien vers la fiche du projet quand elle existe --></div>
+      
+      
+      
+    </div>
+
+    <h3 class="group-title">Les autres ateliers E6 de la section</h3>
+    <p class="group-sub">Ateliers menés par les autres équipes sur la même infrastructure, présentés pour donner une vue d'ensemble.</p>
+    <div class="other-grid"><div class="other-card"><div class="other-eq">Équipe 1</div><div class="other-title">Segmentation en VLAN · Listes de contrôle d'accès (ACL)</div><div class="other-desc">Isolement du laboratoire, espace pour la section SLAM, restriction du lien montant ; accès d'administration réservé au poste enseignant, ouverture restreinte au service Web.</div></div><div class="other-card"><div class="other-eq">Équipe 2</div><div class="other-title">Routage inter-VLAN · Liaison chiffrée entre deux sites (VPN)</div><div class="other-desc">Accès séparés pour les sections SISR et SLAM, accès aux services de l'infrastructure ; liaison chiffrée entre sites et renouvellement des clés sans coupure.</div></div><div class="other-card"><div class="other-eq">Équipe 3</div><div class="other-title">Traduction d'adresses (NAT) · Sonde de détection d'intrusion (IDS)</div><div class="other-desc">Accès Internet différencié par espace, publication du service Web vers l'extérieur ; détection d'un balayage, d'une requête anormale et réduction des fausses alertes.</div></div><div class="other-card"><div class="other-eq">Équipe 4</div><div class="other-title">Adressage automatique (DHCP) · Partage de fichiers</div><div class="other-desc">Adressage par section, adresse fixe pour un poste désigné ; espaces séparés enseignants et étudiants, droits de lecture et d'écriture, traçabilité des accès.</div></div><div class="other-card"><div class="other-eq">Équipe 5</div><div class="other-title">Résolution de noms (DNS) · Supervision réseau (Zabbix)</div><div class="other-desc">Nommage interne des services, résolution inverse, restriction du laboratoire ; surveillance d'un serveur, d'un commutateur et routeur, et de la disponibilité d'un service.</div></div></div>
   </section>
 
   <!-- SECTION LOISIRS AVEC POKER EN PLUS -->
   <section id="loisirs">
     <div class="section-header">
-      <div class="section-tag">// 07 — Loisirs & Passion</div>
-      <h2 class="section-title">Mon univers gaming 🎮</h2>
-      <div class="section-sub">Entre action tactique intense et créativité sans limites — voici ce qui me drive hors des lignes de code.</div>
+      <div class="section-tag">// 07 — Loisirs</div>
+      <h2 class="section-title">Ma passion : le poker</h2>
+      <div class="section-sub">Un jeu de stratégie, de probabilités et de sang-froid, qui m'apprend à décider avec des informations incomplètes.</div>
     </div>
 
     <div class="loisirs-grid">
-      <!-- Blood Strike -->
-      <div class="loisir-card interactive-card">
-        <div class="loisir-icon">🎯</div>
-        <div class="loisir-title">Blood Strike</div>
-        <div class="loisir-sub">Battle Royale FPS • Tactique • Survie</div>
-        <div class="loisir-desc">Un Battle Royale mobile ultra-compétitif, rapide et précis. Blood Strike demande une lecture de carte instantanée, des décisions sous pression et un travail d'équipe sans faille — des réflexes directement transposables à la réactivité en cybersécurité.</div>
-        <div class="loisir-stats">
-          <div class="stat stat-hover"><div class="stat-value" style="color:#E24B4A;">Top 3%</div><div class="stat-label">🏆 Classement</div></div>
-          <div class="stat stat-hover"><div class="stat-value" style="color:#E24B4A;">500+</div><div class="stat-label">🎮 Parties</div></div>
-          <div class="stat stat-hover"><div class="stat-value" style="color:#E24B4A;">Squad</div><div class="stat-label">🤝 Mode préféré</div></div>
-        </div>
-        <div class="skill-bars-container">
-          <div class="skill-bar-item"><span>⚡ Réflexes</span><div class="bar-bg"><div class="bar-fill blood-fill" data-width="90"></div></div><span class="percent">0%</span></div>
-          <div class="skill-bar-item"><span>🗺️ Lecture de map</span><div class="bar-bg"><div class="bar-fill blood-fill" data-width="82"></div></div><span class="percent">0%</span></div>
-          <div class="skill-bar-item"><span>🎧 Coordination</span><div class="bar-bg"><div class="bar-fill blood-fill" data-width="78"></div></div><span class="percent">0%</span></div>
-        </div>
-        <div class="badge-game blood-badge">⚡ Réactivité • 🎯 Tactique • 🤝 Teamplay • 🔥 Survie</div>
-      </div>
-
-      <!-- Roblox Studio -->
-      <div class="loisir-card interactive-card">
-        <div class="loisir-icon">🧱</div>
-        <div class="loisir-title">Roblox Studio</div>
-        <div class="loisir-sub">Dev • Scripting Lua • Création de jeux</div>
-        <div class="loisir-desc">Bien plus qu'un jeu — un vrai terrain de création. Sur Roblox Studio, je conçois des mini-jeux, j'écris du code Lua, je gère des logiques de gameplay et j'explore la mécanique des serveurs multijoueurs. Un laboratoire de développement concret.</div>
-        <div class="loisir-stats">
-          <div class="stat stat-hover"><div class="stat-value" style="color:#378ADD;">500h+</div><div class="stat-label">⏱️ Studio</div></div>
-          <div class="stat stat-hover"><div class="stat-value" style="color:#378ADD;">12+</div><div class="stat-label">🎮 Mini-jeux</div></div>
-          <div class="stat stat-hover"><div class="stat-value" style="color:#378ADD;">Lua</div><div class="stat-label">💻 Scripting</div></div>
-        </div>
-        <div class="skill-bars-container">
-          <div class="skill-bar-item"><span>💻 Scripting Lua</span><div class="bar-bg"><div class="bar-fill roblox-fill" data-width="72"></div></div><span class="percent">0%</span></div>
-          <div class="skill-bar-item"><span>🎨 Game design</span><div class="bar-bg"><div class="bar-fill roblox-fill" data-width="80"></div></div><span class="percent">0%</span></div>
-          <div class="skill-bar-item"><span>🏗️ Level design</span><div class="bar-bg"><div class="bar-fill roblox-fill" data-width="65"></div></div><span class="percent">0%</span></div>
-        </div>
-        <div class="badge-game roblox-badge">💻 Code • ✨ Créativité • 🌐 Multijoueur • 🧠 Imagination</div>
-      </div>
-
       <!-- POKER - Carte spéciale Casino Nouvelle-Calédonie -->
       <div class="loisir-card interactive-card poker-card">
-        <div class="loisir-icon">♠️♥️♣️♦️</div>
+        
         <div class="loisir-title">Poker</div>
-        <div class="loisir-sub">Texas Hold'em • Bluff • Stratégie</div>
-        <div class="loisir-desc">Passionné de poker depuis plusieurs années, j'apprécie la dimension stratégique, psychologique et mathématique du jeu. Que ce soit en ligne ou au Casino de Nouméa, le poker m'apprend la gestion des risques, la lecture d'adversaires et la prise de décision sous pression — des compétences précieuses en cybersécurité.</div>
+        <div class="loisir-sub">Texas Hold'em · Stratégie · Probabilités</div>
+        <div class="loisir-desc">Joueur de poker depuis plusieurs années, j'apprécie la dimension stratégique, psychologique et mathématique du jeu. Le poker développe la gestion du risque, l'analyse du comportement adverse et la prise de décision sous pression : des qualités utiles en cybersécurité.</div>
         <div class="loisir-stats">
-          <div class="stat stat-hover"><div class="stat-value" style="color:#D4AF37;">Tournois</div><div class="stat-label">🎲 Live & Online</div></div>
-          <div class="stat stat-hover"><div class="stat-value" style="color:#D4AF37;">Final Tables</div><div class="stat-label">🏆 Plusieurs podiums</div></div>
-          <div class="stat stat-hover"><div class="stat-value" style="color:#D4AF37;">Cash Game</div><div class="stat-label">💰 Régulier</div></div>
+          <div class="stat stat-hover"><div class="stat-value" style="color:#D4AF37;">Tournois</div><div class="stat-label">Live & Online</div></div>
+          <div class="stat stat-hover"><div class="stat-value" style="color:#D4AF37;">Final Tables</div><div class="stat-label">Plusieurs podiums</div></div>
+          <div class="stat stat-hover"><div class="stat-value" style="color:#D4AF37;">Cash Game</div><div class="stat-label">Régulier</div></div>
         </div>
         <div class="skill-bars-container">
-          <div class="skill-bar-item"><span>🧠 Psychologie / Bluff</span><div class="bar-bg"><div class="bar-fill poker-fill" data-width="85"></div></div><span class="percent">0%</span></div>
-          <div class="skill-bar-item"><span>📊 Calcul des cotes</span><div class="bar-bg"><div class="bar-fill poker-fill" data-width="78"></div></div><span class="percent">0%</span></div>
-          <div class="skill-bar-item"><span>🎯 Patience & discipline</span><div class="bar-bg"><div class="bar-fill poker-fill" data-width="88"></div></div><span class="percent">0%</span></div>
+          <div class="skill-bar-item"><span>Psychologie</span><div class="bar-bg"><div class="bar-fill poker-fill" data-width="85"></div></div><span class="percent">0%</span></div>
+          <div class="skill-bar-item"><span>Calcul des probabilités</span><div class="bar-bg"><div class="bar-fill poker-fill" data-width="78"></div></div><span class="percent">0%</span></div>
+          <div class="skill-bar-item"><span>Patience et discipline</span><div class="bar-bg"><div class="bar-fill poker-fill" data-width="88"></div></div><span class="percent">0%</span></div>
         </div>
-        <div class="badge-game poker-badge">🎰 Casino de Nouméa • ♠️ Texas Hold'em • 🃏 Bluff • 📈 Bankroll Management</div>
+        <div class="badge-game poker-badge">Texas Hold'em · Gestion du risque · Gestion de bankroll</div>
       </div>
     </div>
   </section>
 
   <section id="cv">
     <div class="cv-block">
-      <div class="section-tag" style="color:#fff; opacity:0.85;">// 08 — CV</div><div class="cv-title">📄 Mon Curriculum Vitae</div>
-      <p style="margin-top:0.5rem; opacity:0.9">Version la plus récente — à jour 2026</p>
-      <a href="cv-yoran-tairio.pdf" class="cv-link" target="_blank" rel="noopener">⬇️ Télécharger mon CV (PDF)</a>
-      <p style="margin-top:1rem; font-size:0.7rem; opacity:0.7">Format PDF • Mis à jour régulièrement</p>
+      <div class="section-tag" style="color:#fff; opacity:0.85;">// 08 — CV</div><div class="cv-title">Mon Curriculum Vitae</div>
+      <p style="margin-top:0.5rem; opacity:0.9">Version à jour — 2026</p>
+      <a href="cv-yoran-tairio.pdf" class="cv-link" target="_blank" rel="noopener">Télécharger mon CV (PDF)</a>
+      <p style="margin-top:1rem; font-size:0.7rem; opacity:0.7">Format PDF</p>
     </div>
   </section>
 
   <section id="contact">
-    <div class="section-header"><div class="section-tag">// 09 — Contact</div><h2 class="section-title">Travaillons ensemble</h2><div class="section-sub">Vous cherchez un stagiaire motivé en SISR, ou vous avez un projet sur lequel je peux contribuer ? N'hésitez pas à me contacter, je réponds rapidement.</div></div>
+    <div class="section-header"><div class="section-tag">// 09 — Contact</div><h2 class="section-title">Me contacter</h2><div class="section-sub">Vous recherchez un stagiaire ou un alternant en systèmes et réseaux, ou vous souhaitez échanger sur un projet ? Contactez-moi.</div></div>
     <div class="contact-grid">
-      <div class="contact-info"><h3 style="margin-bottom:1rem">📬 Me joindre</h3><p>Nouvelle‑Calédonie • disponible pour alternance/stage</p><div class="contact-links"><a href="mailto:yoran.tairio@gmail.com" class="contact-link">✉️ yoran.tairio@gmail.com</a><!-- LinkedIn : remets la ligne avec ton vrai lien, par ex. <a href="https://www.linkedin.com/in/TON-PROFIL" class="contact-link" target="_blank" rel="noopener">💼 LinkedIn</a> --><div class="contact-link">📍 Nouméa, Nouvelle-Calédonie</div></div></div>
-      <form class="contact-form" id="contactForm"><h3 style="margin-bottom:1rem">✍️ Envoyer un message</h3><p style="margin-bottom:1rem; font-size:0.8rem; color:var(--text-muted);">Votre logiciel de messagerie s'ouvrira avec le message prêt à envoyer.</p><input type="text" id="cNom" placeholder="Votre nom" required/><input type="text" id="cObjet" placeholder="Objet" required/><textarea rows="4" id="cMessage" placeholder="Votre message..." required></textarea><button type="submit">Envoyer →</button></form>
+      <div class="contact-info"><h3 style="margin-bottom:1rem">Me joindre</h3><p>Nouvelle-Calédonie · disponible pour un stage ou une alternance</p><div class="contact-links"><a href="mailto:yoran.tairio@gmail.com" class="contact-link">yoran.tairio@gmail.com</a><!-- LinkedIn : remets la ligne avec ton vrai lien, par ex. <a href="https://www.linkedin.com/in/TON-PROFIL" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>--><div class="contact-link">Nouméa, Nouvelle-Calédonie</div></div></div>
+      <form class="contact-form" id="contactForm"><h3 style="margin-bottom:1rem">Envoyer un message</h3><p style="margin-bottom:1rem; font-size:0.8rem; color:var(--text-muted);">Votre logiciel de messagerie s'ouvrira avec le message prêt à envoyer.</p><input type="text" id="cNom" placeholder="Votre nom" required/><input type="text" id="cObjet" placeholder="Objet" required/><textarea rows="4" id="cMessage" placeholder="Votre message..." required></textarea><button type="submit">Envoyer →</button></form>
     </div>
   </section>
 
@@ -945,10 +973,9 @@
     <p>Réalisé en HTML/CSS · Hébergé sur GitHub Pages</p>
   </footer>
 
-  <script>
-    function animateLoisirSkills() {
+  <script>function animateLoisirSkills() {
       const fillBars = document.querySelectorAll('.bar-fill');
-      fillBars.forEach(bar => {
+      fillBars.forEach(bar =>{
         const rect = bar.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight - 100;
         if (isVisible && bar.style.width !== bar.getAttribute('data-width') + '%') {
@@ -966,16 +993,16 @@
 
     const menuBtn = document.getElementById('menuBtn');
     const menuLinks = document.getElementById('menuLinks');
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', () =>{
       const open = menuLinks.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', open);
     });
-    menuLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menuLinks.querySelectorAll('a').forEach(a =>a.addEventListener('click', () =>{
       menuLinks.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
     }));
 
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
+    document.getElementById('contactForm').addEventListener('submit', (e) =>{
       e.preventDefault();
       const nom = document.getElementById('cNom').value;
       const objet = document.getElementById('cObjet').value;
@@ -987,10 +1014,10 @@
 
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav ul a');
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () =>{
       let current = '';
-      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 150) current = s.id; });
-      navLinks.forEach(a => { 
+      sections.forEach(s =>{ if(window.scrollY >= s.offsetTop - 150) current = s.id; });
+      navLinks.forEach(a =>{ 
         if(a.getAttribute('href') === '#'+current) {
           a.style.color = 'var(--primary)';
         } else {
